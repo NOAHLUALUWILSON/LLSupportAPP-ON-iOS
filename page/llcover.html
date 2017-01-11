@@ -1,0 +1,484 @@
+<html>
+   <head>
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="../css/mui.min.css"  />
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="../css/style.css" />
+	
+      
+   <script src="../js/llhjq.js"></script>
+   <script src="../js/llh.min.js"></script>
+   <script type="text/javascript" src="event/js/twintailosu=v1.01.js"></script>
+   <script type="text/javascript" src="js/highstock.js"></script>
+   <script type="text/javascript" src="js/exporting.js"></script>
+   <script src="js/songjson.js"></script>
+   <script src="js/coverage.js"></script>
+   <script src="js/llcover.js" type="text/javascript"></script>
+   <style type="text/css">
+   	button {position:relative;height:200px;width:200px;margin-left:100px;margin-top:100px;background-color:#F0F8FF}
+   	table {position:relative;}
+	img {height:65px;width:65px}
+   	td {size:2}
+	.mui-bar{background-color: #98FB98;}
+	.bordbg{height: 3830px;}
+	body{margin: 0 auto;text-align: center;}
+   </style>
+   <meta charset="utf-8">
+   </head>
+   <body>
+   	<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-back mui-pull-left" href="../index.html"></a>
+ 			<h1 class="mui-title">歌曲判定覆蓋計算</h1>
+		</header><br><br><br>
+		<div class="bordbg">
+			<div class="frametittle"></div>
+			<div class="framebody"><br>
+				<h3>Live信息</h3>
+<form action="" id="unitform" name="unitform" method="POST" onsubmit="return check()" enctype=multipart/form-data>
+搜索：<input type="text" id="songsearch" name="songsearch" value="" onchange="changesongselect()"></input><br>
+篩選：<select id="diff" name="diff" onchange="changesongselect();changediffinfo();changespeeds()" style="display:none;width: 120px;">
+      <option value="">難易度</option>
+      <option value="easy">easy</option>
+      <option value="normal">normal</option>
+      <option value="hard">hard</option>
+      <option value="expert">expert</option>
+   </select>
+   <select id="songatt" name="songatt" onchange="changesongselect()" style="width: 120px;">
+      <option value="">屬性</option>
+      <option value="smile">smile</option>
+      <option value="pure">pure</option>
+      <option value="cool">cool</option>
+   </select>
+    <input type="button" id="language" name="language" onclick="changeLanguage()" value="切換語言"></input>
+<br>
+歌曲：<select id="songchoice" name="songchoice" onchange="changediffinfo();changesonginfo('songchoice');changespeeds()">
+      <option value=""> </option>
+   </select>
+難度：<select id="diffchoice" name="diffchoice" onchange="changesonginfo('songchoice');changespeeds()" style="width: 150px;">
+      <option value="easy">easy</option>
+      <option value="normal">normal</option>
+      <option value="hard">hard</option>
+      <option value="expert" SELECTED>expert</option>
+      <option value="master">master</option>
+   </select>
+<br>
+
+速度：<select name="speeds" id="speeds" style="width: 80px;">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8" SELECTED>8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+<br>
+打擊節奏：
+<input type="button" style="height:24px;width:24px;padding:0" value="-" onclick="offsetdown()"></input>
+<input name="offset" type="text" id="offset" value="0" size="3" style="width: 50px;"/>
+<input type="button" style="height:24px;width:24px;padding:0" value="+" onclick="offsetup()"></input>
+<input type="button" style="height:24px;width:50px;padding:0" value="归0" onclick="offsetzero()"></input>
+<hr>
+
+<h3>判卡庫</h3>
+篩選：<br>
+<select id="rarity" name="rarity" onchange="changecardselect()" style="width: 240px;">
+      <option value="">稀有度</option>
+      <option value="SR">SR</option>
+      <option value="SSR">SSR</option>
+      <option value="UR">UR</option>
+   </select>
+   <select id="chr" name="chr" onchange="changecardselect()" style="width: 240px;">
+      <option value="">角色</option>
+      <option value="高坂穗乃果">高坂穗乃果</option>
+      <option value="绚濑绘里">绚濑绘里</option>
+      <option value="南小鸟">南小鸟</option>
+      <option value="园田海未">园田海未</option>
+      <option value="星空凛">星空凛</option>
+      <option value="西木野真姬">西木野真姬</option>
+      <option value="东条希">东条希</option>
+      <option value="小泉花阳">小泉花阳</option>
+      <option value="矢泽妮可">矢泽妮可</option>
+      <option value="高海千歌">高海千歌</option>
+      <option value="樱内梨子">樱内梨子</option>
+      <option value="松浦果南">松浦果南</option>
+      <option value="黑泽黛雅">黑泽黛雅</option>
+      <option value="渡边曜">渡边曜</option>
+      <option value="津岛善子">津岛善子</option>
+      <option value="国木田花丸">国木田花丸</option>
+      <option value="小原鞠莉">小原鞠莉</option>
+      <option value="黑泽露比">黑泽露比</option>
+   </select>
+   <select id="unitgrade" name="unitgrade" onchange="changecardselect()" style="width: 240px;">
+      <option value="">年級小隊</option>
+      <option value="4">μ's</option>
+      <option value="5">Aqours</option>
+      <option value="1">一年級</option>
+      <option value="2">二年級</option>
+      <option value="3">三年級</option>
+      <option value="6">Printemps</option>
+      <option value="7">lilywhite</option>
+      <option value="8">BiBi</option>
+      <option value="9">CYaRon!</option>
+      <option value="10">AZALEA</option>
+      <option value="11">Guilty Kiss</option>
+   </select>
+   <select id="att" name="att" onchange="changecardselect()" style="width: 240px;">
+      <option value="">屬性</option>
+      <option value="smile" style="color:red">smile</option>
+      <option value="pure" style="color:green">pure</option>
+      <option value="cool" style="color:blue">cool</option>
+   </select>
+   <select id="triggertype" name="triggertype" onchange="changecardselect()" style="width: 240px;">
+      <option value="">觸發類型</option>
+      <option value="1">時間</option>
+      <option value="3">圖標</option>
+      <option value="4">combo</option>
+   </select>
+   <select id="cardtype" name="cardtype" onchange="changecardselect()" style="width: 240px;">
+      <option value="">卡片類型</option>
+      <option value="活动卡">活動卡</option>
+      <option value="登录奖励">登錄獎勵</option>
+   </select>
+   <select id="setname" name="setname" onchange="changecardselect()" style="width: 240px;">
+      <option value="">套卡</option>
+      <option value="初期">初期</option>
+      <option value="職業編">職業編</option>
+      <option value="動物編">動物編</option>
+      <option value="8月編">8月編</option>
+      <option value="9月編">9月編</option>
+      <option value="10月編">10月編</option>
+      <option value="11月編">11月編</option>
+      <option value="12月編">12月編</option>
+      <option value="1月編">1月編</option>
+      <option value="2月編">2月編</option>
+      <option value="3月編">3月編</option>
+      <option value="4月編">4月編</option>
+      <option value="5月編">5月編</option>
+      <option value="6月編">6月編</option>
+      <option value="7月編">7月編</option>
+      <option value="チャイナドレス編">旗袍篇</option>
+      <option value="カフェメイド編">女僕篇</option>
+      <option value="ハロウィン編">萬聖篇</option>
+      <option value="星座編">星座篇</option>
+      <option value="雪山編">雪山篇</option>
+      <option value="七福神編">七福神篇</option>
+      <option value="バレンタイン編">情人節篇</option>
+      <option value="ホワイトデー編">白色情人節篇</option>
+      <option value="職業編(Part2">職業篇2</option>
+      <option value="サイバー編">電玩篇</option>
+      <option value="手品師編">魔術師篇</option>
+      <option value="マリン編">海軍篇</option>
+      <option value="プール編">泳池篇</option>
+      <option value="くのいち編">忍者篇</option>
+      <option value="動物編(Part2)">動物篇2</option>
+      <option value="舞踏会編">舞踏會篇</option>
+      <option value="クリスマス編">聖誕篇</option>
+      <option value="サーカス編">馬戲團篇</option>
+      <option value="妖精の国編">妖精國篇</option>
+   </select>
+   <br>
+卡片：<select id="cardchoice" name="cardchoice" onchange="skilllevel = 0;changeskilllevel();changecolor('cardchoice')">
+      <option value=""> </option>
+   </select>
+   <input type="checkbox" id="mezame" name="mezame" onclick="toMezame()">覺醒</input>
+   <input type="button" id="language" name="language" onclick="changeLanguage()" value="切換語言"></input>
+<br>
+   <div style="float:left">
+<img id="imageselect">
+</div>
+<div style="clear:both">
+   技能等級: <input type="button" style="height:20px;width:20px;padding:0" value="▲" onclick="lvlup()"></input> Lv<nospan id="skilllevel">1</nospan> <input type="button" style="height:20px;width:20px;padding:0" value="▼" onclick="lvldown()"></input></nobr>
+   </input></nobr><br>
+   技能效果 :每<nobr id="require" name="require"></nobr>
+   <nobr id="requiretext"></nobr>
+   <nobr id="possibility" name="possibility"></nobr>%概率
+   <nobr id="effecttext"></nobr>
+   <nobr id="score" name="score"></nobr>
+   <nobr id="unittext"></nobr>
+   </nobr><br><br>
+   </p>
+
+<h3>隊伍配置</h3>
+<div style="float:left">
+<table border='1'>
+    <tr>
+        <td>判卡1：</td>
+      <td><img  id='avatar0' src='event/js/null.png'/></td>
+        <td><select name="member0" id="member0">
+            <option value="0">無</option>
+            <option value="1" SELECTED>N卡</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel0">1</nospan>　</td>
+        <td>條件：<input name="require0" type="text" id="require0" value="25" size="2" />　</td>
+       </tr>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability0" type="text" id="probability0" value="36" size="2" />%　</td>
+        <td>時間：<input name="time0" type="text" id="time0" value="4.5" size="3" />秒</td>
+      <td><input type="button" value="放卡1" onclick="copyTo(0)"></td>
+      <td><input type="button" value="清空1" onclick="decopyTo(0)"></td>
+    </tr>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <tr>
+        <td>判卡2：</td>
+      <td><img style="display:none" id='avatar1'/></td>
+        <td><select name="member1" id="member1">
+            <option value="0">无</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel1">1</nospan>　</td>
+        <td>條件：<input name="require1" type="text" id="require1" value="0" size="2" />　</td>
+       </td>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability1" type="text" id="probability1" value="0" size="2" />%　</td>
+        <td>時間：<input name="time1" type="text" id="time1" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡2" onclick="copyTo(1)"></td>
+      <td><input type="button" value="清空2" onclick="decopyTo(1)"></td>
+   </tr>
+    <tr>
+        <td>判卡3：</td>
+      <td><img style="display:none" id='avatar2'/></td>
+        <td><select name="member2" id="member2">
+            <option value="0">无</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel2">1</nospan>　</td>
+        <td>条件：<input name="require2" type="text" id="require2" value="0" size="2" />　</td>
+       </tr>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability2" type="text" id="probability2" value="0" size="2" />%　</td>
+        <td>时间：<input name="time2" type="text" id="time2" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡3" onclick="copyTo(2)"></td>
+      <td><input type="button" value="清空3" onclick="decopyTo(2)"></td>
+   </tr>
+    <tr>
+        <td>判卡4：</td>
+      <td><img style="display:none" id='avatar3'/></td>
+        <td><select name="member3" id="member3">
+            <option value="0">无</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel3">1</nospan>　</td>
+        <td>條件：<input name="require3" type="text" id="require3" value="0" size="2" />　</td>
+       </tr>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability3" type="text" id="probability3" value="0" size="2" />%　</td>
+        <td>时间：<input name="time3" type="text" id="time3" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡4" onclick="copyTo(3)"></td>
+      <td><input type="button" value="清空4" onclick="decopyTo(3)"></td>
+   </tr>
+    <tr>
+        <td>判卡5：</td>
+      <td><img style="display:none" id='avatar4'/></td>
+        <td><select name="member4" id="member4">
+            <option value="0">無</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel4">1</nospan>　</td>
+        <td>条件：<input name="require4" type="text" id="require4" value="0" size="2" />　</td>
+       </tr>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability4" type="text" id="probability4" value="0" size="2" />%　</td>
+        <td>时间：<input name="time4" type="text" id="time4" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡5" onclick="copyTo(4)"></td>
+      <td><input type="button" value="清空5" onclick="decopyTo(4)"></td>
+   </tr>
+    <tr>
+        <td>判卡6：</td>
+      <td><img style="display:none" id='avatar5'/></td>
+        <td><select name="member5" id="member5">
+            <option value="0">无</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel5">1</nospan>　</td>
+        <td>条件：<input name="require5" type="text" id="require5" value="0" size="2" />　</td>
+       </tr>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability5" type="text" id="probability5" value="0" size="2" />%　</td>
+        <td>时间：<input name="time5" type="text" id="time5" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡6" onclick="copyTo(5)"></td>
+      <td><input type="button" value="清空6" onclick="decopyTo(5)"></td>
+   </tr>
+    <tr>
+        <td>判卡7：</td>
+      <td><img style="display:none" id='avatar6'/></td>
+        <td><select name="member6" id="member6">
+            <option value="0">无</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel6">1</nospan>　</td>
+        <td>条件：<input name="require6" type="text" id="require6" value="0" size="2" />　</td>
+       </tr>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability6" type="text" id="probability6" value="0" size="2" />%　</td>
+        <td>时间：<input name="time6" type="text" id="time6" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡7" onclick="copyTo(6)"></td>
+      <td><input type="button" value="清空7" onclick="decopyTo(6)"></td>
+   </tr>
+    <tr>
+        <td>判卡8：</td>
+      <td><img style="display:none" id='avatar7'/></td>
+        <td><select name="member7" id="member7">
+            <option value="0">无</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel7">1</nospan>　</td>
+        <td>条件：<input name="require7" type="text" id="require7" value="0" size="2" />　</td>
+       </tr>
+       <tr>
+       	<td></td>
+        <td>概率：<input name="probability7" type="text" id="probability7" value="0" size="2" />%　</td>
+        <td>时间：<input name="time7" type="text" id="time7" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡8" onclick="copyTo(7)"></td>
+      <td><input type="button" value="清空8" onclick="decopyTo(7)"></td>
+   </tr>
+    <tr>
+        <td>判卡9：</td>
+      <td><img style="display:none" id='avatar8'/></td>
+        <td><select name="member8" id="member8">
+            <option value="0">无</option>
+            <option value="1">N判</option>
+            <option value="2">T判</option>
+            <option value="3">C判</option>
+        </select></td>
+      <td>Lv<nospan id="skilllevel8">1</nospan>　</td>
+        <td>条件：<input name="require8" type="text" id="require8" value="0" size="2" />　</td>
+       </tr>
+       <tr>
+		<td></td>       	
+        <td>概率：<input name="probability8" type="text" id="probability8" value="0" size="2" />%　</td>
+        <td>时间：<input name="time8" type="text" id="time8" value="0" size="3" />秒</td>
+      <td><input type="button" value="放卡9" onclick="copyTo(8)"></td>
+      <td><input type="button" value="清空9" onclick="decopyTo(8)"></td>
+   </tr>
+   <tr style="display:none">
+      <td>id</td>
+      
+      <td><input type="text" id="cardid0" name="cardid0" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid1" name="cardid1" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid2" name="cardid2" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid3" name="cardid3" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid4" name="cardid4" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid5" name="cardid5" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid6" name="cardid6" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid7" name="cardid7" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="cardid8" name="cardid8" size=1 value=0 autocomplete="off"></td>
+      
+    </tr>
+    <tr style="display:none">
+      <td>mezame</td>
+      
+      <td><input type="text" id="mezame0" name="mezame0" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame1" name="mezame1" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame2" name="mezame2" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame3" name="mezame3" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame4" name="mezame4" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame5" name="mezame5" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame6" name="mezame6" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame7" name="mezame7" size=1 value=0 autocomplete="off"></td>
+      
+      <td><input type="text" id="mezame8" name="mezame8" size=1 value=0 autocomplete="off"></td>
+      
+    </tr>
+</table>
+<hr>
+<div id="calculate" >
+<input type="button" value="计算" onclick="check()"> 
+<input type="button" value="重置" onclick="javascript:window.location.href='llcover.html'"> 
+</div>
+
+</div>
+<div style="clear:both">
+</div>
+<br>
+</form>
+
+<iframe style="display:none" id='if' name='if' src='about:blank' frameborder='0' allowtransparency="yes"></iframe>
+<br>
+<div id="container" style="display:none;width:100%;height:700px;float:left"></div>
+<div id="separater" style="display:none;width:0%;height:700px;float:left">
+    <div style="height:50px"></div>
+   <input type="button" id="separater0" value="1" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(0)"><p></p>
+    <input type="button" id="separater1" value="2" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(1)"><p></p>
+    <input type="button" id="separater2" value="3" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(2)"><p></p>
+    <input type="button" id="separater3" value="4" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(3)"><p></p>
+    <input type="button" id="separater4" value="5" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(4)"><p></p>
+    <input type="button" id="separater5" value="6" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(5)"><p></p>
+    <input type="button" id="separater6" value="7" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(6)"><p></p>
+    <input type="button" id="separater7" value="8" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(7)"><p></p>
+    <input type="button" id="separater8" value="9" style="display:none;height:24px;width:24px;border:2px #b0b0b0 solid;border-radius:12px" onclick="redraw(8)"><p></p>
+</div>
+<div style="clear:both">
+</div>
+<div id="running" style="display:none;background:#ffffb0;width:100%;text-align:center"><b>运算中哦~</b></div>
+</div>
+		</div>
+<script type="text/javascript" src="../js/mui.js"></script>
+<script>
+	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
+</script>
+</div>
+<div style="display: none;">
+		<audio src="../media/aqbgm.mp3" autoplay="autoplay" loop="loop" controls="controls"></audio>
+	</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>LoveLiveSupport</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/mui.min.css"  />
+<style>
+	p{color:#000000 ;
+	  }
+	.thanks{
+		text-align: center;
+		margin: 0 auto;
+	}
+</style>
+</head>
+<body style="background: url(../img/3.jpg);background-attachment: fixed;background-repeat: no-repeat;background-size: 100%;">
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-back mui-pull-left" href="../index.html"></a>
+ 			<h1 class="mui-title">国服活动PT档线</h1>
+		</header>
+<div class="mui-content" style="opacity: 0.8;">
+	<div id="result">
+		<br>
+		<a>Tips：此页面需要网络连接 并且加载需要一段时间 请耐心等待</a><br><br>
+	</div>
+    <script src="../js/jquery.min.js"></script>
+    <script >
+    		$(document).ready(function(){
+		var url = 'https://sifcn.loveliv.es/api/event_meta/';
+		//var url = 'http://www.llsupport.cn/appdeta/nowpt.json';
+        $.getJSON(url,function(data){
+        	$('#result').append('<p><b>活动名称:'+data.title+'</b></p><hr>'); 
+        	$('#result').append('<p>活动开始的时间:'+data.begin.time+'</p>');
+       	 $('#result').append('<p><b>结算#2300(一档):'+data.tiers.tier1.pt+'PT'+'</b></p>');
+        	$('#result').append('<p><b>结算#11500(二档):'+data.tiers.tier2.pt+'PT'+'</b></p>');
+        	$('#result').append('<p>本次活动参与的玩家:'+data.players+'人'+'</p>');
+        	$('#result').append('<p>已经拿卡的玩家数量:'+data.sr_players+'人'+'</p>');
+        	$('#result').append('<p>活动结束的时间:'+data.end.time+'</p><hr>');
+        });
+	});
+    </script>
+    <p>数据结算日为活动结束的时间</p>
+    </a><br><hr>
+    <h4>活动实时PT抓取</h4><hr>
+			<iframe src="http://llcn.noip.me" frameborder="no" scrolling="yes" width="100%" height="250px"></iframe> 
+    <p style="color: #8f8f94">本实时PT的提供的数据可能与真实数据有偏差，一切以服务器上的数据为准，因为本软件提供的数据偏差导致玩家损失的本软件概不负责<p><br>
+    <input type="submit" value="刷新" onclick="javascript:window.location.href='nowpt.html'" style="margin: 10px;"><br>
+    <a class="thanks"><b>Powered By ieb's Event List<br>Thanks For Shulan</b>
+</div>
+<script type="text/javascript" src="../js/mui.js"></script>
+<script>
+	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
+</script>
+</body>
+</html>

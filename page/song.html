@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <title>LoveLiveSupport</title>
+   <script src="../js/llhjq.js"></script>
+   <script src="../js/llh.min.js"></script>
+   <script type="text/javascript" src="../js/twintailosu.js"></script>
+   <link rel="stylesheet" href="../css/mui.min.css" />
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" href="../css/style.css" />
+   <style type="text/css">
+   	button {position:relative;height:200px;width:200px;margin-left:100px;margin-top:100px;background-color:#F0F8FF}
+   	table {position:relative;margin-left:30px;}
+   	td {size:2}
+	.mui-bar{background-color: #DCDCDC;}
+	.mui-title{color: #000000;}
+	.mui-icon{color: #000000;}
+	body{margin: 0 auto;text-align: center;}
+	.bordbg{height: 1000px;}
+   </style>
+   <script src="js/song.js" type="text/javascript"></script>
+   
+  </head>
+   <body onload="init()">
+   	<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-back mui-pull-left" href="../index.html"></a>
+ 			<h1 class="mui-title">歌曲數據查詢</h1>
+	</header><br><br><br>
+	<div class="bordbg">
+		<div class="frametittle"></div>
+		<div class="framebody">
+			<br>
+			搜索：<input type="text" id="search" value="" onchange="changesongselect()" style="width: 240px;"><br>
+篩選：<select id="diff" name="diff" onchange="changesongselect();changediffinfo()" style="display:none">
+		<option value="">難度</option>
+		<option value="easy">easy</option>
+		<option value="normal">normal</option>
+		<option value="hard">hard</option>
+		<option value="expert">expert</option>
+	</select>
+	<select id="songatt" name="songatt" onchange="changesongselect()"  style="width: 100px;">
+		<option value="">屬性</option>
+		<option value="smile">smile</option>
+		<option value="pure">pure</option>
+		<option value="cool">cool</option>
+	</select>
+歌曲：<select id="songchoice" name="songchoice" onchange="changediffinfo();changesonginfo(&#39;songchoice&#39;);" style="color: red; width: 240px;">
+		<option value="" > </option>
+	<option value="40" style="color: red;">未來某一天</option><option value="226" style="color: red;">Someday of my life</option></select><br>
+	<br>
+難度：<select id="diffchoice" name="diffchoice" onchange="changesonginfo(&#39;songchoice&#39;)" style="width: 100px;">
+   <option value="easy">easy</option>
+   <option value="normal">normal</option>
+   <option value="hard">hard</option>
+   <option value="expert">expert</option>
+</select>
+	<input type="button" id="language" name="language" onclick="changeLanguage()" value="簡中/日文 切换" class="mui-btn" style="margin: 10px;"><br>
+<h3>基本信息:</h3><br>
+
+<table border="1">
+<tbody>
+	<tr>
+		<td>歌曲名</td>
+		<td id="jpname" style="color: red;">Someday of my life</td>
+	</tr>
+	<tr>
+		<td>屬性</td>
+		<td id="attribute" style="color: red;">smile</td>
+	</tr>
+	<tr>
+		<td>難度</td>
+		<td id="stardifficulty">8</td>
+	</tr>
+	<tr>
+		<td>combo數</td>
+		<td id="combo">319</td>
+	</tr>
+	<tr>
+		<td>長按比例</td>
+		<td id="slider">6.0%</td>
+	</tr>
+	<tr>
+		<td>打歌時間</td>
+		<td id="time">106秒</td>
+	</tr>
+	<tr>
+		<td>歌曲長度</td>
+		<td id="totaltime">115秒</td>
+	</tr>
+	<tr>
+		<td>BPM</td>
+		<td id="bpm">131</td>
+	</tr>
+<tr>
+	<td id="cnametag" style="display: none;">中文名</td>
+	<td id="name" style="color: red; display: none;">Someday of my life</td>
+</tr>
+</tbody></table><br>
+<h3>分數要求:</h3><br>
+<table border="1">
+<tbody>
+	<tr>
+		<td></td>
+		<td>分數需求</td>
+		<td>最低屬性</td>
+		<td>安全屬性</td>
+	</tr>
+	<tr>
+		<td>C</td>
+		<td id="cscore">54230</td>
+		<td id="clowatt" style="color: red;">10711</td>
+		<td id="cstableatt" style="color: red;">12305</td>
+	</tr>
+	<tr>
+		<td>B</td>
+		<td id="bscore">135575</td>
+		<td id="blowatt" style="color: red;">26778</td>
+		<td id="bstableatt" style="color: red;">30763</td>
+	</tr>
+	<tr>
+		<td>A</td>
+		<td id="ascore">162690</td>
+		<td id="alowatt" style="color: red;">32134</td>
+		<td id="astableatt" style="color: red;">36915</td>
+	</tr>
+	<tr>
+		<td>S</td>
+		<td id="sscore">189805</td>
+		<td id="slowatt" style="color: red;">37490</td>
+		<td id="sstableatt" style="color: red;">43068</td>
+	</tr>
+	
+</tbody></table><br>
+<h3>其他:</h3><br>
+<table border="1">
+<tbody>
+	<tr>
+	<td>combo乘數</td>
+	<td id="combomulti">1.137</td>
+	</tr>
+	<tr>
+	<td>獲得絆</td>
+	<td id="kizunaget">79</td>
+	</tr>
+	<tr>
+	<td>單位強度得分</td>
+	<td id="scoreperstrength">5.063</td>
+	</tr>
+	
+	
+	
+</tbody></table>
+<br>
+		</div>
+	</div>
+
+<script type="text/javascript" src="../js/mui.js"></script>
+<script>
+	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
+</script>
+</div>
+<div style="display: none;">
+		<audio src="../media/aqbgm.mp3" autoplay="autoplay" loop="loop" controls="controls"></audio>
+	</div>
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script src="../js/mui.js" type="text/javascript"></script>
+		<script src="../js/back.js" type="text/javascript"></script>
+		<link href="../css/mui.css" rel="stylesheet"/>
+		<title></title>
+	</head>
+	<style>
+	.buing{margin: 0 auto;text-align: center;margin-top: 90%;width: 80%;}
+	</style>
+	<script language='javascript' type='text/javascript'>   
+var secs =3; //倒计时的秒数   
+var URL ;   
+function Load(url){   
+URL =url;   
+for(var i=secs;i>=0;i--)   
+{   
+window.setTimeout('doUpdate(' + i + ')', (secs-i) * 1000);   
+}   
+}   
+function doUpdate(num)   
+{   
+document.getElementById('ShowDiv').innerHTML = '将在'+num+'秒后进入应用首页' ;   
+if(num == 0) { window.location=URL; }   
+}   
+</script>
+
+	<body style="background-image: url(../img/1kstar.png);background-size: 100%;background-repeat: no-repeat;">
+		<div class="buing" style="display: none;">
+			<div id="ShowDiv" style="font-size:25px;color:#ff0f7c;"></div>  
+		</div>
+		<script language="javascript">   
+Load("../index.html"); //要跳转到的页面   
+</script>  
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head><meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>LoveLiveWiki</title>
+	<link rel="stylesheet" href="../css/mui.min.css"    />
+	<link rel="stylesheet" href="../css/mui.min.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+	<style>
+	.mui-bar{background-color: #FFD700;}
+	.mui-title{color: #FFFFFF;top:13px;}
+	.mui-icon{color: #FFFFFF;top:13px;}
+	.mui-bar{height: 55px;}
+	.mui-bar-nav~.mui-content{padding-top: 55px ;}
+	.mui-btn-blue{background-color: #FFFFFF;}
+	.bordbg{height: 800px;}
+	.bordbg2{height: 550px;}
+	iframe{border-radius: 0px 0px 15px 15px ;background-color: transparent;}
+
+	</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-back mui-pull-left" href="../index.html"></a>
+ 			<h1 class="mui-title">人種鑒定/經驗計算</h1>
+		</header><br><br><br>
+		<div class="bordbg">
+			<div class="frametittle">
+				<div class="frametittle-left">升級經驗計算器</div>
+			</div>
+			<div class="framebody">
+			<iframe src="lllvup.html"  frameborder="no" scrolling="yes" width="100%" height="750px"> </iframe> 
+			</div>
+		</div>
+		<div class="bordbg2">
+			<div class="frametittle">
+				<div class="frametittle-left">人種鑒定器</div>
+			</div>
+			<div class="framebody">
+			<iframe src="llurrank.html"  frameborder="no" scrolling="yes" width="100%" height="500px"> </iframe> 
+			</div>
+		</div>
+
+
+			
+
+			<script type="text/javascript" src="../js/mui.js"></script>
+<script>
+	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
+</script>
+		</div>
+		<div style="display: none;">
+		<audio src="../media/aqbgm.mp3" autoplay="autoplay" loop="loop" controls="controls"></audio>
+	</div>
+	</body>
+</html>

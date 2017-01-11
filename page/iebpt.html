@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LoveLiveSupport</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="../css/mui.min.css"  />
+<style>
+	p{color:#000000 ;
+	  }
+	.thanks{
+		text-align: end;
+	}
+</style>
+</head>
+<body style="background: url(../img/1.jpg); background-size:100%;background-attachment: fixed;background-repeat: no-repeat;" >
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-back mui-pull-left" href="../index.html"></a>
+ 			<h1 class="mui-title">国服活动自动预测BOT</h1>
+		</header>
+<div class="mui-content" style="opacity: 0.8;">
+	<div id="result">
+		<br>
+		<a>Tips：此页面需要网络连接 并且加载需要一段时间 请耐心等待</a><br><br>
+	</div>
+	<!-- JavaScript -->
+	<section >
+    <script src="../js/jquery.min.js"></script>
+    <script>
+    		$(document).ready(function(){
+		var url = 'https://11500.ml/api/legacy';
+		//var url = 'http://www.llsupport.cn/appdeta/ptyc.json' ;
+        $.getJSON(url,function(data){
+        	$('#result').append('<p>刷新时间:'+data.timeago+'s 前'+'</p><hr>');
+        	//$('#result').append('<p>离活动结束还有:'+data.timestamp+'s'+'</p>'); 
+        	$('#result').append('<p><b>#2300(一档):'+data.T1+'PT'+'</b></p>');
+        	$('#result').append('<p><b>#11500(二档):'+data.T2+'PT'+'</b></p>');
+        	$('#result').append('<p><b>#23000(三档):'+data.T3+'PT'+'</b></p><hr>');
+        });
+		
+	});
+    </script>
+    <!--<p>服务器升级中 敬请期待</p>-->
+    <input type="submit" value="刷新" onclick="javascript:window.location.href='iebpt.html'" style="margin: 10px;"><br>
+    </section>
+
+    <a class="thanks"><b>Powered By ieb's Event List<br>Thanks For Shulan</b></a><br>
+    <p style="color: #8f8f94">本预测BOT的提供的数据可能与真实数据有偏差，一切以服务器上的数据为准，因为本软件提供的数据偏差导致玩家损失的本软件概不负责<p><br>
+    
+</div>
+<script type="text/javascript" src="../js/mui.js"></script>
+<script>
+	var _back = mui.back;
+			mui.back = function() {
+				if (showMenu) {
+					closeMenu();
+				} else {
+					_back();
+				}
+			};
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* Made by NOAHLUALU 
+ Copyright in https://www.llsupport.cn 
+*/
+/* ALL */
+a{text-decoration:none;}
+a:active{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:focus{text-decoration:none;}
+a:hover{text-decoration:none;}
+/* tips */
+#block2{width:100%;font-size:15px;text-align:center; height: 50px;margin-top:10px;} 
+#block2 ul{list-style:outside none none;height:80px;padding:3px 0;overflow:hidden;} 
+#block2 ul p{color: #000;font-family: "microsoft yahei";}
+#rolltxt{height: 80px;margin-top:10px !important ;width: 100%;}
+/*body*/
+a{color: #000000;}
+.mui-title{color: #FFFFFF;top:13px;}
+.mui-icon{color: #FFFFFF;top:13px;}
+.mui-bar{height: 55px;}
+.mui-bar-nav~.mui-content{padding-top: 55px ;}
+.mui-icon-info{color: #007AFF;}
+.mui-bar{opacity:0.95;}
+.mui-btn{margin: 10%;width: 80%;height: 45px;}
+.element.style{background-color: transparent !important;}
+.sangar-slideshow-content{background-color: transparent !important;}
+
+/* Tittle */
+.tittle-img{
+	width: 20% !important;
+	margin-left: 75%;
+	background-color: transparent;
+}
+.tittle-text{
+	position: absolute;
+	font-size: x-large;
+	color: #FFFFFF;
+	margin-left: 15%;
+	margin-top:20%;
+}
+.tittle-text2{
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+.tittle-textbody{
+	margin-top: 20%;
+}
+/* Frame Tittle*/
+.bordbg{
+	background-color:#f7f7f7;
+	margin: 3%;
+	width: 94%;
+	height: auto;
+	opacity:0.95;
+	border-radius: 15px;
+}
+.bordbg2{
+	background-color:#DCDCDC;
+	margin: 3%;
+	width: 94%;
+	height: 150px;
+	opacity:0.85;
+	border-radius: 15px;
+}
+.bordbg3{
+	background-color:#DCDCDC;
+	margin: 3%;
+	width: 94%;
+	height: 300px;
+	opacity:0.85;
+	border-radius: 15px;
+}
+.frametittle{
+	background-color:#DCDCDC;
+	width: 100%;
+	height: 50px;
+	border-radius: 15px 15px 0px 0px;
+	color: #00422;
+	opacity: 0.9;
+}
+.frametittle-right{
+	position:fixed;
+	font-size: medium;
+	margin-top:3%;
+	margin-right: 2%;
+	margin-left: 70%;
+}
+.frametittle-left{
+	padding-top:4%;
+	padding-bottom:4%;
+	margin-left: 2%;
+	font-size: medium;
+}
+
+/* Frame Body */
+.framebody{
+	color: #000000;
+	z-index: 99;
+	width: 100%;
+}
+.framebody-bg{
+}
+.framebody-img{
+	width: 100% !important;
+}
+.framebody-text{
+}
+.framebody-h2{
+	position: fixed;
+}
+.framebody-img2{
+	width: 100%;
+}
+.framebody-table{
+	margin: 0 auto;
+	text-align: center;
+	width:100%;
+}
+.bgimg1{background-image: url(../img/top-bg_2.png);background-position:top;background-repeat: no-repeat;background-size:cover;}
+.bgimg2{background-image: url(../img/frame3.jpg);background-position:top;background-repeat: no-repeat;background-size:cover;}
+.bgimg3{background-image: url(../img/twaq1.png);background-position:center;background-repeat: no-repeat;background-size:cover;}
