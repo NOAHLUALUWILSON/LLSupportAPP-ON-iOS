@@ -1,121 +1,161 @@
-/* Made by NOAHLUALU 
- Copyright in https://www.llsupport.cn 
-*/
-/* ALL */
-a{text-decoration:none;}
-a:active{text-decoration:none;}
-a:visited{text-decoration:none;}
-a:focus{text-decoration:none;}
-a:hover{text-decoration:none;}
-/* tips */
-#block2{width:100%;font-size:15px;text-align:center; height: 50px;margin-top:10px;} 
-#block2 ul{list-style:outside none none;height:80px;padding:3px 0;overflow:hidden;} 
-#block2 ul p{color: #000;font-family: "microsoft yahei";}
-#rolltxt{height: 80px;margin-top:10px !important ;width: 100%;}
-/*body*/
-a{color: #000000;}
-.mui-title{color: #FFFFFF;top:13px;}
-.mui-icon{color: #FFFFFF;top:13px;}
-.mui-bar{height: 55px;}
+body{
+	margin: 0px !important;
+	background-color: #F4EAD5;
+	font-family:-apple-system, system-ui, BlinkMacSystemFont,"Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", "Helvetica Neue", sans-serif;
+}
+a{ color: #FFFFFF !important; }
+.mui-title{color: #FFFFFF !important;top:13px;}
+.mui-icon{top:13px;color: #FFFFFF !important;}
+.mui-bar{
+	height: 55px;
+	background-color: #FF619C;	
+}
 .mui-bar-nav~.mui-content{padding-top: 55px ;}
 .mui-icon-info{color: #007AFF;}
 .mui-bar{opacity:0.95;}
 .mui-btn{margin: 10%;width: 80%;height: 45px;}
-.element.style{background-color: transparent !important;}
-.sangar-slideshow-content{background-color: transparent !important;}
 
-/* Tittle */
-.tittle-img{
-	width: 20% !important;
-	margin-left: 75%;
+.br{
+	width: 100%;
+	height: 70px;
 	background-color: transparent;
 }
-.tittle-text{
-	position: absolute;
-	font-size: x-large;
-	color: #FFFFFF;
-	margin-left: 15%;
-	margin-top:20%;
-}
-.tittle-text2{
+.main-banner{
+	font-size: 4vw;
+	width: 96%;
+	max-width: 500px;
 	margin: 0 auto;
+	margin-bottom: 2%;
+	border: 4px solid #FF619C;
+	border-radius: 15px;
+	background-color: #EFEFF4;
+	box-shadow: 2px 2px 2px #CCCCCC;
+	
+}
+	.main-banner-text{
+		padding: 2%;
+		width: 100%;
+		background-color: #FF619C;
+		color: #FFFFFF;
+		font-size: 4vw;
+		text-align: center;
+	}
+	.main-banner img{
+		width: 96%;
+		margin:2%;
+	}
+	.main-banner p{
+		text-align: center;
+		margin: 20px;
+		color: #000000;
+		font-size: 4vw;
+		line-height:100%;
+	}
+.main-frame{
+	font-size: 4vw;
+	width: 96%;
+	max-width: 500px;
+	margin: 0 auto;
+	margin-bottom: 2%;
+	border: 4px solid #FF619C;
+	border-radius: 15px;
+	background-color: #EFEFF4;
+	box-shadow: 2px 2px 2px #CCCCCC;
+}
+.main-icon{
+	width: 100%;
+	background-color: transparent;
 	text-align: center;
-	width: 100%;
 }
-.tittle-textbody{
-	margin-top: 20%;
-}
-/* Frame Tittle*/
-.bordbg{
-	background-color:#f7f7f7;
-	margin: 3%;
-	width: 94%;
+	.main-icon tr td{
+		width: 50%;
+	}
+		.main-icon tr td a div{
+			background-color: #FF619C;
+			padding:10px;
+			margin:15px;
+			border: 2px solid #767676;
+			border-radius: 30px;
+			box-shadow: 2px 2px 2px #CCCCCC;
+		}
+		.main-icon tr td a div:active{
+			background-color: #FF1493;
+		}
+.main-img{
+	position: fixed;
+	bottom: -30px;
+	right: -10%;
+	width:30%;
 	height: auto;
-	opacity:0.95;
-	border-radius: 15px;
+	transform: rotate(320deg);
 }
-.bordbg2{
-	background-color:#DCDCDC;
-	margin: 3%;
-	width: 94%;
-	height: 150px;
-	opacity:0.85;
-	border-radius: 15px;
-}
-.bordbg3{
-	background-color:#DCDCDC;
-	margin: 3%;
-	width: 94%;
-	height: 300px;
-	opacity:0.85;
-	border-radius: 15px;
-}
-.frametittle{
-	background-color:#DCDCDC;
+	.main-img img{
+		width: 100%;
+		height: auto;
+	}
+.main-footer{
+	bottom: 5px;
 	width: 100%;
-	height: 50px;
-	border-radius: 15px 15px 0px 0px;
-	color: #00422;
-	opacity: 0.9;
-}
-.frametittle-right{
-	position:fixed;
-	font-size: medium;
-	margin-top:3%;
-	margin-right: 2%;
-	margin-left: 70%;
-}
-.frametittle-left{
-	padding-top:4%;
-	padding-bottom:4%;
-	margin-left: 2%;
-	font-size: medium;
+	text-align: center;
+	color: #000000;
+	font-size: 12px;
 }
 
-/* Frame Body */
-.framebody{
-	color: #000000;
-	z-index: 99;
+.c-icon{
 	width: 100%;
-}
-.framebody-bg{
-}
-.framebody-img{
-	width: 100% !important;
-}
-.framebody-text{
-}
-.framebody-h2{
-	position: fixed;
-}
-.framebody-img2{
-	width: 100%;
-}
-.framebody-table{
-	margin: 0 auto;
+	background-color: transparent;
 	text-align: center;
-	width:100%;
 }
-.bgimg1{background-image: url(../img/top-bg_2.png);background-position:top;background-repeat: no-repeat;background-size:cover;}
-.bgimg2{background-image: url(../img/frame3.jpg);background-position:top;background-repeat: no-repeat;background-size:cover;}
-.bgimg3{background-image: url(../img/twaq1.png);background-position:center;background-repeat: no-repeat;background-size:cover;}
+	.c-icon tr td{
+		width: 33%;
+	}
+		.c-icon tr td input{
+			font-size: 4vw;
+			background-color: #FF619C;
+			padding:10px;
+			margin:5px;
+			border: 2px solid #767676;
+			border-radius: 30px;
+			box-shadow: 2px 2px 2px #CCCCCC;
+		}
+		.c-icon tr td input:active{
+			background-color: #FF1493;
+		}
+.c-frame{
+	padding: 3%;
+	font-size: 4vw;
+	width: 96%;
+	max-width: 500px;
+	margin: 0 auto;
+	margin-bottom: 2%;
+	border: 4px solid #FF619C;
+	border-radius: 15px;
+	background-color: #EFEFF4;
+	box-shadow: 2px 2px 2px #CCCCCC;
+}
+	.c-frame input , .c-frame select{
+		width:50%;
+		max-width: 250px;
+	}
+
+.info{
+	width: 90%;
+	max-width:500px ;
+	margin: 0 auto;
+	
+}
+.dev-switch{
+	width: 100%;
+}
+.mui-active{
+	background-color: transparent !important;
+}
+.kui-banner{
+	background-image: url(../kui-music/cover/kui-front.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 120px;
+	width: 100%;
+	border-radius: 0px 0px 15px 15px;
+}

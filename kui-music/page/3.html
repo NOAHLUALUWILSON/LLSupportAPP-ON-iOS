@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/mui.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="text/javascript" src="../js/jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="../jquery-jplayer/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="../ttw-music-player-min.js"></script>
+   <link href="../../css/style.css" rel="stylesheet"  />
+    <script type="text/javascript" src="http://app.llsupport.cn/appcd/js/kui-3.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            var description = ' ';
+            $('body').ttwMusicPlayer(myPlaylist, {
+                autoPlay:false, 
+                description:description,
+                jPlayer:{
+                    swfPath:'jquery-jplayer' //You need to override the default swf path any time the directory structure changes
+                }
+            });
+        });
+    </script>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-icon mui-icon-back mui-pull-left" href="../index.html"></a>
+		<h1 class="mui-title" style="color: #000000;">雏葵翻唱集-3</h1>
+	</header>
+</body>
+</html>
